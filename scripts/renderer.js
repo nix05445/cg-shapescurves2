@@ -229,13 +229,11 @@ class Renderer {
         for (let t = 0; t <= 1; t = t + (1 / num_edges)) {
             let x = Math.pow(1 - t, 3) * p0.x + 3 * Math.pow(1 - t, 2) * t * p1.x + 3 * (1 - t) * Math.pow(t, 2) * p2.x + Math.pow(t, 3) * p3.x;
             let y = Math.pow(1 - t, 3) * p0.y + 3 * Math.pow(1 - t, 2) * t * p1.y + 3 * (1 - t) * Math.pow(t, 2) * p2.y + Math.pow(t, 3) * p3.y;
-            console.log(x);
             vertices.push({ x: Math.round(x), y: Math.round(y) });
         }
     
         for (let i = 0; i < vertices.length - 1; i++) {
             this.drawLine(vertices[i], vertices[i + 1], color, framebuffer);
-            console.log("hi");
         }
 
         if (num_edges == 18 || num_edges == 20 || num_edges == 36) {
